@@ -1,0 +1,13 @@
+.container__title{
+    width: 100vw;
+    margin: 25px 0;
+}
+
+.title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    color: #302b2b;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}

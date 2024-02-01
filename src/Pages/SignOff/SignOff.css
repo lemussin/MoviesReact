@@ -1,0 +1,27 @@
+.container-signoff{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.btn-signoff{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    transition: all 1s;
+}
+
+.btn-signoff:hover{
+    border-radius: 12px;
+    transition: all 1s;
+}
+
+.accept{
+    background-color: rgb(33, 167, 6);
+}
+
+.decline{
+    background-color: rgb(231, 20, 20);
+}

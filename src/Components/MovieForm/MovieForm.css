@@ -1,0 +1,84 @@
+.movie-form-container{
+    border: 1px solid darkred;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 5px;
+}
+
+.row-movie{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+}
+
+.movie-form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.movie-form-group-alone{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%;
+}
+
+.movie-form-label{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: rgb(80, 77, 77);
+    margin-bottom: 5px;
+}
+
+.movie-form-input{
+    height: 40px;
+    padding: 3px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(240, 225, 225);
+    color: #000;
+    border-radius: 0px 15px 0px 15px;
+    transition: all 2s;
+}
+
+.movie-form-input:hover{
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.movie-form-input:focus{
+    border: 1px solid #000;
+    -webkit-box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    -moz-box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    transition: all 2s;
+}
+
+.movie-button-submit{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    background-color: rgb(14, 110, 14);
+    color: #fff;
+    margin-bottom: 10px;
+    transition: all 2s;
+}
+
+.movie-button-submit:hover{
+    transform: scale(1.1);
+    border-radius: 12px;
+    transition: all 2s;
+}
+
+.movie-button-submit:focus{
+    border: 1px solid #000;
+}
