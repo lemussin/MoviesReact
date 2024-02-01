@@ -11,7 +11,6 @@ function useUserAPI()
     const [distributors, setDistributors] = useState({});
     const [movies, setMovies] = useState({});
     const [lastMovies, setLastMovies] = useState({});
-    //const [token, setToken] = useState('');
 
     const getGender = () => {
         fetch('/api/Catalogue/catgender')
