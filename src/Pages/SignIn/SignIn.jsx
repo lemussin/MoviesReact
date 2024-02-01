@@ -9,7 +9,6 @@ function SignIn()
     return(
         <Layout>
             <Title text='Sign In Movies'/>
-
             <div className="container-signin">
                 <SignInForm />
             </div>
