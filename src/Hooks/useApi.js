@@ -3,10 +3,8 @@ import { useUserAPI } from "../API/useUserAPI";
 
 function useApi()
 {
-    const [logged, setLogged] = useState(false);
-    const [userInfo, setUserInfo] = useState({});
-
     const { postNewUser, postSignInValidate, getUserInfo, postMovie, getMovies, 
+        userInfo, setUserInfo, logged, setLogged,
         loadingInitialData, gender, countries, languages, distributors, movies, lastMovies, setToken
     } = useUserAPI()
 

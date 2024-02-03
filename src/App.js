@@ -11,6 +11,7 @@ import { SignIn } from './Pages/SignIn/SignIn';
 import { AllMovies } from './Pages/AllMovies/AllMovies';
 import { NewMovie } from './Pages/NewMovie/NewMovies';
 import { SignOff } from './Pages/SignOff/SignOff';
+import { UserProfile } from './Pages/UserProfile/UserProfile';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/movies' element={<AllMovies />} />
           <Route path='/new-movie' element={<NewMovie />} />
           <Route path='/signoff' element={<SignOff />} />
+          <Route path='/user-profile' element={<UserProfile />} />
           <Route path='*' element={<p>Not Found</p>} />
         </Routes>
       </BrowserRouter>

@@ -24,9 +24,9 @@ function Header()
         else{
             return(
                 <div className="action-buttons hide">
-                    <a href="#log-in" title="Log in" className="secondary">
+                    <Link to='/user-profile' title="Log in" className="secondary">
                         My Profile
-                    </a>
+                    </Link>
                     <Link to='/signoff' title="Sign Off" className="secondary">
                         Sign Off
                     </Link>

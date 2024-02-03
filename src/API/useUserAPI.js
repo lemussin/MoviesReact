@@ -11,6 +11,8 @@ function useUserAPI()
     const [distributors, setDistributors] = useState({});
     const [movies, setMovies] = useState({});
     const [lastMovies, setLastMovies] = useState({});
+    const [userInfo, setUserInfo] = useState({});
+    const [logged, setLogged] = useState(false);
 
     const getGender = () => {
         fetch('/api/Catalogue/catgender')
@@ -42,7 +44,46 @@ function useUserAPI()
         .then(response => setLastMovies(response))
     }
 
-    
+    const postValidationToken = async () =>{
+        let date = localStorage.getItem('time');
+        let result;
+
+
+        await fetch('/api/User/PostValidateSession', {
+            method: "POST",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Pragma: 'no-cache',
+            },
+            body: JSON.stringify(date),
+            credentials: 'include',
+            mode: 'cors',
+        })
+        .then(response => response.json())
+        .then(response => result = response);
+
+        return await result.isValid
+        
+    }
+
+    const validateToken = async () =>
+    {
+        let token = localStorage.getItem('token');
+        if(token)
+        {
+            let isValid = await postValidationToken();
+            if(isValid)
+            {
+                const username = localStorage.getItem('user');
+                let response = await getUserInfoByUsername(username);
+                const currentUser = await createUserState(response.user);
+                await setUserInfo(currentUser);
+                await setLogged(true);
+                await getMovies();
+            }
+        }
+    }
 
     useEffect(() => {
         setloadingInitialData(true)
@@ -51,7 +92,7 @@ function useUserAPI()
         getContries();
         getLanguages();
         getDistributors();
-        //getMovies();
+        validateToken();
         setTimeout(() => {
             setloadingInitialData(false)
         }, 1500)
@@ -115,13 +156,31 @@ function useUserAPI()
     }
 
     const getUserInfo = async (idUser) => {
-        const URL = 'api/User/GetUserInformation/' + idUser;
+        const URL = '/api/User/GetUserInformation/' + idUser;
         const response = await fetch(URL, {
             method: "GET",
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 Pragma: 'no-cache',
+            },
+            credentials: 'include',
+            mode: 'cors',
+        });
+        let result = await response.json();
+        return result;
+    }
+
+    const getUserInfoByUsername = async (username) => {
+        const token = localStorage.getItem('token');
+
+        const URL = '/api/User/GetUserInformationByUsername/' + username;
+        const response = await fetch(URL, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
             },
             credentials: 'include',
             mode: 'cors',
@@ -179,8 +238,25 @@ function useUserAPI()
         await setMovies(result);
     }
 
-    return { loadingInitialData, postNewUser, postSignInValidate, getUserInfo, postMovie, getMovies,
+    return { loadingInitialData, userInfo, setUserInfo, logged, setLogged,
+        postNewUser, postSignInValidate, getUserInfo, postMovie, getMovies,
         gender, countries, languages, distributors, movies, lastMovies}
+}
+
+function createUserState(user)
+{
+    let obj = {
+        id: user.idUSer,
+        Name: user.first_Name,
+        Last_name: user.last_name,
+        Last_name2: user.last_Name_2,
+        Username: user.username,
+        Email: user.email,
+        Passwrd: user.passwrd,
+        Birthday: user.birthday,
+        IdGender: user.idGender
+    }
+    return obj;
 }
 
 export { useUserAPI }
