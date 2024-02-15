@@ -8,7 +8,7 @@ import './NewMovies.css';
 
 function NewMovie()
 {
-    const { logged } = useContext(MoviesContext);
+    const { logged, saveNewMovie } = useContext(MoviesContext);
 
     if(!logged) { return <ValidateSession /> }
 
@@ -17,7 +17,11 @@ function NewMovie()
             <Title text='Add a new Movie ' />
 
             <div className="movie-container">
-                <MovieForm />
+                <MovieForm 
+                    isNewMovie={true}
+                    textButton="Save movie"
+                    submitFunction={saveNewMovie}
+                />
             </div>
         </Layout>
     )

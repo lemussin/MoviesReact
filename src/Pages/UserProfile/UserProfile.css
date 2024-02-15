@@ -1,5 +1,90 @@
 .user-container{
     background-color: #f2f2f2;
+    max-width: 90vw;
+    height: 70vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, calc(100vw/4));
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.user-container-row1-1{
+    grid-column: 1/1;
+    grid-row: 1/1;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-profile-image{
+    height: 100%;
     width: 100%;
-    height: 75vh;
+    max-height: 200px;
+    max-width: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.user-container-row1-2{
+    grid-column: 2/2;
+    grid-row: 1/1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-bottom: 1px solid darkcyan;
+}
+
+.user-group-info-main h5{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 19px;
+    color: #747171;
+}
+
+.user-group-info-main p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.user-container-row1-3{
+    grid-column: 3/4;
+    grid-row: 1/1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 40px;
+    border-bottom: 1px solid darkcyan;
+}
+
+.user-container-row2-2{
+    grid-column: 2/2;
+    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.user-container-row2-1{
+    grid-column: 1/1;
+    grid-row: 2/2;
+    display: flex;
+}
+
+.user-group-info-ID{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.user-group-info-ID p{
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    height: 24px;
+    width: 24px;
+    line-height: 21px;
+    text-align: center;
+    border: 1px solid rgb(228, 167, 12);
+    border-radius: 10px;
+    background-color: rgb(228, 167, 12);
 }

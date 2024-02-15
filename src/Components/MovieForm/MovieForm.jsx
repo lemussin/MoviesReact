@@ -3,25 +3,25 @@ import './MovieForm.css';
 import { MoviesContext } from "../../context/MoviesContext";
 import { useNavigate } from "react-router-dom";
 
-function MovieForm()
+function MovieForm({isNewMovie, movieObj, textButton, submitFunction})
 {
     const navigate = useNavigate();
-    const {userInfo, distributors, countries, languages, saveNewMovie, getAllMovies} = useContext(MoviesContext);
+    const {userInfo, distributors, countries, languages, getAllMovies} = useContext(MoviesContext);
 
     const [movie, setMovie] = useState({
-        idMovie: 0,
-        name: '',
-        director: '',
-        idDistributor: 0,
-        releaseDate: '',
-        durationTime: 0,
-        idCountry: 0,
-        idLanguage: 0,
-        investment: 0,
-        collectionMoney: 0,
-        moviePicture: '',
-        active: 1,
-        registerDate:'',
+        idMovie: movieObj?.idMovie || 0,
+        name: movieObj?.name || '',
+        director: movieObj?.director || '',
+        idDistributor: movieObj?.idDistributor || 0,
+        releaseDate: movieObj?.releaseDate || '',
+        durationTime: movieObj?.durationTime || 0,
+        idCountry: movieObj?.idCountry || 0,
+        idLanguage: movieObj?.idLanguage || 0,
+        investment: movieObj?.investment || 0,
+        collectionMoney: movieObj?.collectionMoney || 0,
+        moviePicture: movieObj?.moviePicture || '',
+        active: movieObj?.active || 1,
+        registerDate:movieObj?.registerDate || '',
         idUser: userInfo.id
     })
 
@@ -97,13 +97,35 @@ function MovieForm()
 
     const onSubmitMovie = async (event) =>{
         event.preventDefault();
-        const result = await saveNewMovie(movie);
+        const result = await submitFunction(movie)
         alert(result.message + ' '+ result.idStatus);
         if(result.idStatus === 1)
         {
             await getAllMovies();
             navigate('/movies');
         }
+        /*
+        if(isNewMovie)
+        {
+            const result = await saveNewMovie(movie);
+            alert(result.message + ' '+ result.idStatus);
+            if(result.idStatus === 1)
+            {
+                await getAllMovies();
+                navigate('/movies');
+            }
+        }
+        else{
+            const result = await updateMovie(movie);
+            alert(result.message + ' '+ result.idStatus);
+            if(result.idStatus === 1)
+            {
+                await getAllMovies();
+                navigate('/movies');
+            }
+        }
+        */
+        
     }
 
     return(
@@ -188,7 +210,7 @@ function MovieForm()
                     </div>
                 </div>
 
-                <button type="submit" className="movie-button-submit">Add Movie</button>
+                <button type="submit" className="movie-button-submit">{textButton}</button>
 
             </form>
         </div>

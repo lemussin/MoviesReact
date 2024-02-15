@@ -1,0 +1,79 @@
+.country-form-container{
+    width: 750px;
+    border: 1px solid rgba(9, 95, 59, 0.74);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.row-country{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+}
+
+.country-form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 45%;
+}
+
+.country-form-label{
+    font-size: 15px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: rgb(80, 77, 77);
+    margin-bottom: 5px;
+}
+
+.country-form-input{
+    height: 40px;
+    padding: 3px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(230, 221, 221);
+    color: #000;
+    border-radius: 0px 15px 0px 15px;
+    transition: all 2s;
+}
+
+.country-form-input:hover{
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 2s;
+}
+
+.country-form-input:focus{
+    border: 1px solid #000;
+    -webkit-box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    -moz-box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    box-shadow: 13px 11px 16px 1px rgba(204,198,204,1);
+    transition: all 2s;
+}
+
+.country-button-submit{
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    background-color: rgb(14, 110, 14);
+    color: #fff;
+    margin-bottom: 10px;
+    transition: all 2s;
+}
+
+.country-button-submit:hover{
+    transform: scale(1.1);
+    border-radius: 12px;
+    transition: all 2s;
+}
+
+.country-button-submit:focus{
+    border: 1px solid #000;
+}

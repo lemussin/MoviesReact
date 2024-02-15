@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './GlobalStyles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
@@ -12,7 +11,9 @@ import { AllMovies } from './Pages/AllMovies/AllMovies';
 import { NewMovie } from './Pages/NewMovie/NewMovies';
 import { SignOff } from './Pages/SignOff/SignOff';
 import { UserProfile } from './Pages/UserProfile/UserProfile';
-
+import { EditMovie } from './Pages/EditMovie/EditMovie';
+import { Countries } from './Pages/Countries/Countries';
+import { NewCountry } from './Pages/NewCountry/NewCountry';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path='/new-movie' element={<NewMovie />} />
           <Route path='/signoff' element={<SignOff />} />
           <Route path='/user-profile' element={<UserProfile />} />
+          <Route path='/edit-movie/:idMovie' element={<EditMovie />} />
+          <Route path='/countries' element={<Countries />} />
+          <Route path='/new-country' element={<NewCountry />} />
           <Route path='*' element={<p>Not Found</p>} />
         </Routes>
       </BrowserRouter>

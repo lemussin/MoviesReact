@@ -2,3 +2,31 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.table-img{
+    height: 40px;
+    width: 40px;
+}
+
+.button-table-movie{
+    background-color: rgb(22, 150, 143);
+    padding: 5px 16px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.button-table-movie:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 2s;
+}
+
+.delete{
+    background-color: rgb(216, 9, 9);
+    padding: 3px 15px;
+    outline: none;
+    border: none;
+}
+

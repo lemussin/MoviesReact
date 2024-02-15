@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import { useUserAPI } from "../API/useUserAPI";
 
 function useApi()
 {
-    const { postNewUser, postSignInValidate, getUserInfo, postMovie, getMovies, 
-        userInfo, setUserInfo, logged, setLogged,
-        loadingInitialData, gender, countries, languages, distributors, movies, lastMovies, setToken
+    const { postNewUser, postSignInValidate, getUserInfo, postMovie, getMovies, putMovie, deleteMovie,
+        userInfo, setUserInfo, logged, setLogged, showModal, setShowModal, postCountry, getContries,
+        loadingInitialData, gender, countries, languages, distributors, movies, lastMovies,
+        moviesAtts, countriesAtts
     } = useUserAPI()
 
     const saveNewUser = async (user) => {
@@ -39,8 +39,31 @@ function useApi()
         return result;
     }
 
+    const updateMovie = async (movie) =>{
+        const result = await putMovie(movie);
+        return result;
+    }
+
     const getAllMovies = async () => {
         await getMovies();
+    }
+
+    const deleteMovieById = async (idMovie) => {
+        const result = await deleteMovie(idMovie);
+        if(result.idStatus === 1)
+        {
+            await getMovies();
+        }
+        return result;
+    }
+
+    const deleteCountryById = async(idCountry) =>{
+        
+    }
+
+    const saveNewCountry = async (country) =>{
+        const result = await postCountry(country);
+        return result;
     }
 
     const closeSession = () =>{
@@ -52,8 +75,9 @@ function useApi()
     }
 
     return { loadingInitialData, saveNewUser, setLogged, setUserInfo, validateSignIn, getUserInformation, saveNewMovie, getAllMovies,
-        closeSession,
-        logged, userInfo, gender, countries, languages, distributors, movies, lastMovies
+        closeSession, updateMovie, showModal, setShowModal, deleteMovieById, deleteCountryById, saveNewCountry, getContries,
+        logged, userInfo, gender, countries, languages, distributors, movies, lastMovies,
+        moviesAtts, countriesAtts
     }
 
 }
@@ -68,7 +92,9 @@ function setUserJSON(userinfo){
         Email: userinfo.email,
         Passwrd: '',
         Birthday: userinfo.birthday,
-        IdGender: userinfo.idGender
+        IdGender: userinfo.idGender,
+        Gender_Name: userinfo.genderObj.name,
+        Gender_Abbreviation: userinfo.genderObj.abbreviation
     }
 
     return user;

@@ -1,0 +1,17 @@
+.btn-backbtn{
+    background-color: rgb(156, 117, 17);
+    outline: none;
+    border: none;
+    color: white;
+    height: 40px;
+    width: 90px;
+    border-radius: 10px 0 10px 0;
+    display: block;
+    transition: all 1s;
+}
+
+.btn-backbtn:hover{
+    border-radius: 0 15px 0 15px;
+    transform: scale(1.2);
+    transition: all 1s;
+}

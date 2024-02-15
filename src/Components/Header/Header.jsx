@@ -85,8 +85,8 @@ function Header()
                                                     </svg>
                                                 </div>
                                                 <div className="item-title">
-                                                    <h3>Authentication</h3>
-                                                    <p>User Management out of the box</p>
+                                                    <h3><Link to='/countries'>Countries</Link></h3>
+                                                    <p>See the catalogue of countries</p>
                                                 </div>
                                             </li>
                                             <li>
